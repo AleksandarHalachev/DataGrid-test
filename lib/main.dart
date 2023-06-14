@@ -8,27 +8,11 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a blue toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
@@ -69,67 +53,91 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-        child: Scaffold(
-      body: SfDataGrid(
-        source: _articuloDataSource,
-        columns: [
-          GridColumn(
+      child: Scaffold(
+        body: SfDataGrid(
+          source: _articuloDataSource,
+          columns: [
+            GridColumn(
               columnName: 'id',
               label: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  alignment: Alignment.centerRight,
-                  child: const Text(
-                    'ID',
-                    overflow: TextOverflow.ellipsis,
-                  ))),
-          GridColumn(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                alignment: Alignment.centerRight,
+                child: const Text(
+                  'ID',
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
+            ),
+            GridColumn(
               columnName: 'stock',
               label: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  alignment: Alignment.centerLeft,
-                  child: const Text(
-                    'Stock',
-                    overflow: TextOverflow.ellipsis,
-                  ))),
-          GridColumn(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                alignment: Alignment.centerLeft,
+                child: const Text(
+                  'Stock',
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
+            ),
+            GridColumn(
               columnName: 'descripcion',
               label: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  alignment: Alignment.centerLeft,
-                  child: const Text(
-                    'Descripción',
-                    overflow: TextOverflow.ellipsis,
-                  ))),
-          GridColumn(
-              columnName: 'codigo de barras',
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                alignment: Alignment.centerLeft,
+                child: const Text(
+                  'Descripción',
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
+            ),
+            GridColumn(
+              columnName: 'codBarras',
               label: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  alignment: Alignment.centerLeft,
-                  child: const Text(
-                    'Cod. Barras',
-                    overflow: TextOverflow.ellipsis,
-                  ))),
-          GridColumn(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                alignment: Alignment.centerLeft,
+                child: const Text(
+                  'Cod. Barras',
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
+            ),
+            GridColumn(
+              columnName: 'familia',
+              label: Container(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                alignment: Alignment.centerLeft,
+                child: const Text(
+                  'Familia',
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
+            ),
+            GridColumn(
               columnName: 'pvp',
               label: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  alignment: Alignment.centerLeft,
-                  child: const Text(
-                    'Pvp',
-                    overflow: TextOverflow.ellipsis,
-                  ))),
-          GridColumn(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                alignment: Alignment.centerLeft,
+                child: const Text(
+                  'Pvp',
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
+            ),
+            GridColumn(
               columnName: 'imagen',
               label: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  alignment: Alignment.centerLeft,
-                  child: const Text(
-                    'Imagen',
-                    overflow: TextOverflow.ellipsis,
-                  ))),
-        ],
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                alignment: Alignment.centerLeft,
+                child: const Text(
+                  'Imagen',
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
-    ));
+    );
   }
 
   List<Articulo> getArticuloData() {
