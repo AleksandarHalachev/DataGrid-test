@@ -54,14 +54,21 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(title: const Text('Prueba de DataGrid')),
         body: SfDataGrid(
           source: _articuloDataSource,
+          allowEditing: true,
+          navigationMode: GridNavigationMode.cell,
+          checkboxColumnSettings: DataGridCheckboxColumnSettings(
+              showCheckboxOnHeader: false, backgroundColor: Colors.blue),
+          showCheckboxColumn: true,
+          selectionMode: SelectionMode.multiple,
           columns: [
             GridColumn(
               columnName: 'id',
               label: Container(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                alignment: Alignment.centerRight,
+                alignment: Alignment.centerLeft,
                 child: const Text(
                   'ID',
                   overflow: TextOverflow.ellipsis,
@@ -72,7 +79,7 @@ class _MyHomePageState extends State<MyHomePage> {
               columnName: 'stock',
               label: Container(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                alignment: Alignment.centerLeft,
+                alignment: Alignment.center,
                 child: const Text(
                   'Stock',
                   overflow: TextOverflow.ellipsis,
@@ -83,7 +90,7 @@ class _MyHomePageState extends State<MyHomePage> {
               columnName: 'descripcion',
               label: Container(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                alignment: Alignment.centerLeft,
+                alignment: Alignment.center,
                 child: const Text(
                   'Descripción',
                   overflow: TextOverflow.ellipsis,
@@ -94,7 +101,7 @@ class _MyHomePageState extends State<MyHomePage> {
               columnName: 'codBarras',
               label: Container(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                alignment: Alignment.centerLeft,
+                alignment: Alignment.center,
                 child: const Text(
                   'Cod. Barras',
                   overflow: TextOverflow.ellipsis,
@@ -105,7 +112,7 @@ class _MyHomePageState extends State<MyHomePage> {
               columnName: 'familia',
               label: Container(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                alignment: Alignment.centerLeft,
+                alignment: Alignment.center,
                 child: const Text(
                   'Familia',
                   overflow: TextOverflow.ellipsis,
@@ -116,7 +123,7 @@ class _MyHomePageState extends State<MyHomePage> {
               columnName: 'pvp',
               label: Container(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                alignment: Alignment.centerLeft,
+                alignment: Alignment.center,
                 child: const Text(
                   'Pvp',
                   overflow: TextOverflow.ellipsis,
@@ -127,7 +134,7 @@ class _MyHomePageState extends State<MyHomePage> {
               columnName: 'imagen',
               label: Container(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                alignment: Alignment.centerLeft,
+                alignment: Alignment.center,
                 child: const Text(
                   'Imagen',
                   overflow: TextOverflow.ellipsis,
