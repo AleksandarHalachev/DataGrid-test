@@ -13,8 +13,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+        colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.deepPurple),
+        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -23,16 +23,6 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
   final String title;
 
   @override
@@ -52,108 +42,131 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(title: const Text('Prueba de DataGrid')),
-        body: SfDataGrid(
-          source: _articuloDataSource,
-          allowEditing: true,
-          navigationMode: GridNavigationMode.cell,
-          checkboxColumnSettings: DataGridCheckboxColumnSettings(
-              showCheckboxOnHeader: false, backgroundColor: Colors.blue),
-          showCheckboxColumn: true,
-          selectionMode: SelectionMode.multiple,
-          columns: [
-            GridColumn(
-              columnName: 'id',
-              label: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                alignment: Alignment.centerLeft,
-                child: const Text(
-                  'ID',
-                  overflow: TextOverflow.ellipsis,
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.title),
+      ),
+      body: Column(
+        children: [
+          Expanded(
+            child: SfDataGrid(
+              allowFiltering: true,
+              source: _articuloDataSource,
+              columnWidthMode: ColumnWidthMode.fitByColumnName,
+              columnWidthCalculationRange: ColumnWidthCalculationRange.allRows,
+              columns: [
+                GridColumn(
+                  columnName: 'id',
+                  allowFiltering: false,
+                  label: Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                    alignment: Alignment.centerLeft,
+                    child: const Text(
+                      'ID',
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
                 ),
-              ),
-            ),
-            GridColumn(
-              columnName: 'stock',
-              label: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                alignment: Alignment.center,
-                child: const Text(
-                  'Stock',
-                  overflow: TextOverflow.ellipsis,
+                GridColumn(
+                  columnName: 'stock',
+                  label: Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                    alignment: Alignment.center,
+                    child: const Text(
+                      'Stock',
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
                 ),
-              ),
-            ),
-            GridColumn(
-              columnName: 'descripcion',
-              label: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                alignment: Alignment.center,
-                child: const Text(
-                  'Descripción',
-                  overflow: TextOverflow.ellipsis,
+                GridColumn(
+                  columnName: 'descripcion',
+                  label: Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                    alignment: Alignment.center,
+                    child: const Text(
+                      'Descripción',
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
                 ),
-              ),
-            ),
-            GridColumn(
-              columnName: 'codBarras',
-              label: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                alignment: Alignment.center,
-                child: const Text(
-                  'Cod. Barras',
-                  overflow: TextOverflow.ellipsis,
+                GridColumn(
+                  columnName: 'codBarras',
+                  label: Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                    alignment: Alignment.center,
+                    child: const Text(
+                      'Cod. Barras',
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
                 ),
-              ),
-            ),
-            GridColumn(
-              columnName: 'familia',
-              label: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                alignment: Alignment.center,
-                child: const Text(
-                  'Familia',
-                  overflow: TextOverflow.ellipsis,
+                GridColumn(
+                  columnName: 'familia',
+                  label: Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                    alignment: Alignment.center,
+                    child: const Text(
+                      'Familia',
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
                 ),
-              ),
-            ),
-            GridColumn(
-              columnName: 'pvp',
-              label: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                alignment: Alignment.center,
-                child: const Text(
-                  'Pvp',
-                  overflow: TextOverflow.ellipsis,
+                GridColumn(
+                  columnName: 'pvp',
+                  label: Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                    alignment: Alignment.center,
+                    child: const Text(
+                      'Pvp',
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
                 ),
-              ),
-            ),
-            GridColumn(
-              columnName: 'imagen',
-              label: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                alignment: Alignment.center,
-                child: const Text(
-                  'Imagen',
-                  overflow: TextOverflow.ellipsis,
+                GridColumn(
+                  columnName: 'imagen',
+                  allowFiltering: false,
+                  label: Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                    alignment: Alignment.center,
+                    child: const Text(
+                      'Imagen',
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
                 ),
-              ),
+              ],
             ),
-          ],
-        ),
+          ),
+          MaterialButton(
+            child: Text('Add Filter'),
+            onPressed: () {
+              _articuloDataSource.addFilter(
+                'pvp',
+                FilterCondition(
+                  type: FilterType.lessThan,
+                  value: 100,
+                ),
+              );
+            },
+          ),
+          MaterialButton(
+            child: Text('Clear Filters'),
+            onPressed: () {
+              _articuloDataSource.clearFilters();
+            },
+          ),
+        ],
       ),
     );
   }
+}
 
-  List<Articulo> getArticuloData() {
-    return [
-      Articulo(1, '10', 'Paraguas', 'AD2342F', 'accesorios', 5, 'url_imagen'),
-      Articulo(2, '5', 'Teclado', 'AD23Q42F', 'electrónica', 52, 'url_imagen'),
-      Articulo(3, '1', 'Pantalla', 'GD2342F', 'electrónica', 134, 'url_imagen')
-    ];
-  }
+List<Articulo> getArticuloData() {
+  return [
+    Articulo(1, 10, 'Paraguas', 'AD2342F', 'accesorios', 5, 'url_imagen'),
+    Articulo(2, 5, 'Teclado', 'AD23Q42F', 'electrónica', 52, 'url_imagen'),
+    Articulo(3, 1, 'Pantalla', 'GD2342F', 'electrónica', 134, 'url_imagen')
+  ];
 }
 
 class ArticuloDataSource extends DataGridSource {
@@ -161,8 +174,7 @@ class ArticuloDataSource extends DataGridSource {
     dataGridRows = articulos
         .map<DataGridRow>((dataGridRow) => DataGridRow(cells: [
               DataGridCell<int>(columnName: 'id', value: dataGridRow.id),
-              DataGridCell<String>(
-                  columnName: 'stock', value: dataGridRow.stock),
+              DataGridCell<int>(columnName: 'stock', value: dataGridRow.stock),
               DataGridCell<String>(
                   columnName: 'descripcion', value: dataGridRow.descripcion),
               DataGridCell<String>(
@@ -184,9 +196,7 @@ class ArticuloDataSource extends DataGridSource {
   DataGridRowAdapter? buildRow(DataGridRow row) {
     return DataGridRowAdapter(
         cells: row.getCells().map<Widget>((dataGridCell) {
-      return Container(
-        child: Text(dataGridCell.value.toString()),
-      );
+      return Text(dataGridCell.value.toString());
     }).toList());
   }
 }
@@ -195,7 +205,7 @@ class Articulo {
   Articulo(this.id, this.stock, this.descripcion, this.codBarras, this.familia,
       this.pvp, this.imagen);
   final int id;
-  final String stock;
+  final int stock;
   final String descripcion;
   final String codBarras;
   final String familia;
