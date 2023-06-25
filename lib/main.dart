@@ -138,11 +138,11 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ),
           MaterialButton(
-            child: Text('Add Filter'),
+            child: const Text('Add Filter'),
             onPressed: () {
               _articuloDataSource.addFilter(
                 'pvp',
-                FilterCondition(
+                const FilterCondition(
                   type: FilterType.lessThan,
                   value: 100,
                 ),
@@ -150,7 +150,7 @@ class _MyHomePageState extends State<MyHomePage> {
             },
           ),
           MaterialButton(
-            child: Text('Clear Filters'),
+            child: const Text('Clear Filters'),
             onPressed: () {
               _articuloDataSource.clearFilters();
             },
